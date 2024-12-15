@@ -22,16 +22,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Logo */}
           <div className="relative w-32 md:w-40 lg:w-48">
             <Link href="/">
-              <a>
-                <Image
-                  src="/orbis-logo.png"
-                  alt="Orbis Logo"
-                  width={160}
-                  height={40} // Adjust dimensions as per your logo's aspect ratio
-                  priority
-                  className="hover:scale-105 transition-transform"
-                />
-              </a>
+              <Image
+                src="/orbis-logo.png"
+                alt="Orbis Logo"
+                width={160}
+                height={40} // Adjust dimensions as per your logo's aspect ratio
+                priority
+                className="hover:scale-105 transition-transform"
+              />
             </Link>
           </div>
 
@@ -39,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav className="hidden md:flex space-x-4 lg:space-x-6">
             {[
               { href: "/focus-areas", label: "Focus Areas" },
-              { href: "/offerings", label: "Offerings" }, {/* Changed "Products" to "Offerings" */}
+              { href: "/offerings", label: "Offerings" },
               { href: "/careers", label: "Careers" },
               { href: "/contact", label: "Contact" },
             ].map(({ href, label }) => (
@@ -82,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ul className="space-y-2">
               {[
                 { href: "/focus-areas", label: "Focus Areas" },
-                { href: "/offerings", label: "Offerings" }, {/* Changed "Products" to "Offerings" */}
+                { href: "/offerings", label: "Offerings" },
                 { href: "/careers", label: "Careers" },
                 { href: "/contact", label: "Contact" },
               ].map(({ href, label }) => (
