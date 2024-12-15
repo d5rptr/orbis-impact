@@ -226,10 +226,6 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                class
-
-                              <div
-                key={index}
                 className="bg-white shadow-lg p-6 rounded-3xl hover:shadow-xl transition-shadow duration-200"
               >
                 <h3 className="text-xl font-bold">{service.title}</h3>
