@@ -1,10 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Orbis Impact
+
+This is built using [Next.js](https://nextjs.org) and bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). The site highlights Orbis' mission, capabilities, and products, providing a modern and engaging user experience.
+
+## Features
+
+- **Next.js Framework**: Fast, modern, and SEO-friendly.
+- **Dynamic Routing**: Powered by the App Router.
+- **Responsive Design**: Optimized for all devices.
+- **Custom Fonts**: Includes [Geist](https://vercel.com/font) for a sleek and professional aesthetic.
 
 ## Getting Started
 
-First, run the development server:
+Follow the steps below to run the project locally.
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- **Node.js**: [Download here](https://nodejs.org)
+- **npm**, **yarn**, or **pnpm**: Package manager (comes with Node.js)
+
+### Installation
+
+Clone the repository and install dependencies:
 
 ```bash
+git clone https://github.com/your-username/orbis-impact.git
+cd orbis-impact
+npm install
+# or
+yarn install
+# or
+pnpm install
+
+Run the Development Server
+
+Start the local development server:
+
 npm run dev
 # or
 yarn dev
@@ -12,25 +44,52 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the site in action. The page auto-updates as you edit files.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Editing the Site
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Modify the main page at:
 
-## Learn More
+app/page.tsx
 
-To learn more about Next.js, take a look at the following resources:
+The site auto-reloads as you save changes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The easiest way to deploy your Orbis Impact site is with Vercel, the creators of Next.js. Follow these steps:
+	1.	Sign up for a Vercel account.
+	2.	Connect your GitHub repository to Vercel.
+	3.	Deploy your project with a single click.
 
-## Deploy on Vercel
+For detailed deployment instructions, refer to the Next.js Deployment Documentation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Orbis Branding
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Primary Colors
+	•	Dark Blue: #17345C (RGB: 23, 52, 92)
+	•	Azure Blue: #4168B1 (RGB: 65, 104, 177)
+	•	Orbit Blue: #6DCFF6 (RGB: 109, 207, 246)
+
+These colors are integrated into the design for a consistent brand identity.
+
+Learn More
+
+To learn more about Next.js and how to extend the functionality of this project, check out:
+	•	Next.js Documentation - Explore features and APIs.
+	•	Next.js GitHub Repository - Join the community and contribute.
+	•	Learn Next.js - An interactive tutorial for beginners.
+
+Contributing
+
+We welcome contributions to improve the Orbis Impact website. Feel free to fork the repository and submit a pull request with your enhancements.
+
+License
+
+This project is licensed under the MIT License.
+
+Contact
+
+For inquiries, please contact Orbis Operations.
+
+You can copy and paste this entire block into your `README.md` file on GitHub. Let me know if you need further adjustments!
