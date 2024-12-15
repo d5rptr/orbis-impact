@@ -92,24 +92,19 @@ export default function Home() {
             {[
               {
                 title: "Commitment",
-                src: "/icons/commitment.svg",
                 description:
                   "We are dedicated to our clients' missions and objectives.",
               },
               {
                 title: "Innovation",
-                src: "/icons/innovation.svg",
                 description: "We craft creative and forward-leaning solutions.",
               },
               {
                 title: "Agility",
-                src: "/icons/agility.svg",
-                description:
-                  "We adapt to complex and evolving challenges.",
+                description: "We adapt to complex and evolving challenges.",
               },
               {
                 title: "Integrity",
-                src: "/icons/integrity.svg",
                 description:
                   "We uphold the highest standards in all we do.",
               },
@@ -118,16 +113,7 @@ export default function Home() {
                 key={index}
                 className="bg-white shadow-lg p-6 rounded-lg hover:shadow-2xl transition-shadow duration-200"
               >
-                <Image
-                  src={value.src}
-                  alt={`${value.title} Icon`}
-                  width={64}
-                  height={64}
-                  className="mx-auto mb-4"
-                />
-                <h3 className="text-xl font-bold text-darkBlue">
-                  {value.title}
-                </h3>
+                <h3 className="text-xl font-bold text-darkBlue">{value.title}</h3>
                 <p className="mt-2 text-darkBlue">{value.description}</p>
               </div>
             ))}
@@ -143,19 +129,16 @@ export default function Home() {
             {[
               {
                 title: "Discovery",
-                src: "/products/discovery.png",
                 description:
                   "An AI-powered platform for digital intelligence and counter-disinformation.",
               },
               {
                 title: "Landscape",
-                src: "/products/landscape.png",
                 description:
                   "A dynamic tool for geospatial analytics and situational awareness.",
               },
               {
                 title: "Catalyst",
-                src: "/products/catalyst.png",
                 description:
                   "A secure platform for integrating complex systems and enabling real-time decision-making.",
               },
@@ -164,13 +147,6 @@ export default function Home() {
                 key={index}
                 className="bg-white border border-azureBlue shadow-md p-6 rounded-lg hover:shadow-lg hover:scale-105 transition-transform duration-300"
               >
-                <Image
-                  src={product.src}
-                  alt={`${product.title} Product`}
-                  width={96}
-                  height={96}
-                  className="mx-auto mb-4"
-                />
                 <h3 className="text-xl font-bold text-azureBlue">{product.title}</h3>
                 <p className="mt-2 text-azureBlue">{product.description}</p>
               </div>
@@ -189,44 +165,37 @@ export default function Home() {
                 title: "Research & Analysis",
                 description:
                   "Deep insights into global trends and challenges to inform decision-making.",
-                icon: "/icons/research.svg",
               },
               {
                 title: "Training",
                 description:
                   "Customized training programs to enhance skills and operational readiness.",
-                icon: "/icons/training.svg",
               },
               {
                 title: "OSINT Advisory",
                 description:
                   "Expert guidance in leveraging open-source intelligence for actionable insights.",
-                icon: "/icons/osint.svg",
               },
               {
                 title: "Strategic Communications",
                 description:
                   "Crafting narratives and communication strategies to achieve organizational goals.",
-                icon: "/icons/communications.svg",
               },
               {
                 title: "Consulting",
                 description:
                   "Tailored consulting solutions to address your unique challenges and objectives.",
-                icon: "/icons/consulting.svg",
+              },
+              {
+                title: "Data as a Service",
+                description:
+                  "Secure and scalable solutions for real-time data access and analytics.",
               },
             ].map((service, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center text-center bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-200"
               >
-                <Image
-                  src={service.icon}
-                  alt={`${service.title} Icon`}
-                  width={64}
-                  height={64}
-                  className="mb-4"
-                />
                 <h3 className="text-xl font-bold text-darkBlue">{service.title}</h3>
                 <p className="mt-2 text-darkBlue">{service.description}</p>
               </div>
