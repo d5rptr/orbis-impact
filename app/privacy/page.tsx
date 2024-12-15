@@ -2,6 +2,9 @@
 
 import React from "react";
 
+// Mark the page for dynamic rendering
+export const dynamic = "force-dynamic";
+
 export default function PrivacyPolicy() {
   return (
     <div className="bg-accent text-darkBlue font-sans py-8 px-4 md:px-8">
