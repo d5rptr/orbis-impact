@@ -2,12 +2,14 @@
 
 import "./globals.css";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -30,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               />
             </div>
 
-            {/* Navigation */}
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-4 lg:space-x-6">
               {[
                 { href: "/", label: "Home" },
@@ -48,7 +50,54 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </Link>
               ))}
             </nav>
+
+            {/* Hamburger Icon */}
+            <button
+              className="md:hidden text-orbitBlue focus:outline-none"
+              onClick={() => setMenuOpen(!isMenuOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <nav className="md:hidden bg-darkBlue text-light py-4 px-4">
+              <ul className="space-y-2">
+                {[
+                  { href: "/", label: "Home" },
+                  { href: "/focus-areas", label: "Focus Areas" },
+                  { href: "/products", label: "Products" },
+                  { href: "/careers", label: "Careers" },
+                  { href: "/contact", label: "Contact" },
+                ].map(({ href, label }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="block text-orbitBlue hover:text-azureBlue transition font-bold"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </header>
 
         {/* Main Content */}
