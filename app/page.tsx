@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
 // Reusable Card Component
 interface CardProps {
@@ -14,9 +12,12 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, src, description, alt }) => (
-  <div
+  <motion.div
     className="bg-white shadow-lg p-6 rounded-3xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
-    data-aos="fade-up"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
   >
     <Image
       src={src}
@@ -28,7 +29,7 @@ const Card: React.FC<CardProps> = ({ title, src, description, alt }) => (
     />
     <h3 className="text-xl font-bold text-darkBlue">{title}</h3>
     <p className="mt-2 text-gray-600">{description}</p>
-  </div>
+  </motion.div>
 );
 
 // Reusable Section Component
@@ -45,16 +46,11 @@ const Section: React.FC<SectionProps> = ({ bgColor, children, id }) => (
 );
 
 export default function Home() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
   const coreValues = [
     {
       title: "Commitment",
       src: "/icons/commitment.svg",
-      description:
-        "We are dedicated to our clients' missions and objectives.",
+      description: "We are dedicated to our clients' missions and objectives.",
       alt: "Commitment Icon",
     },
     {
@@ -72,8 +68,7 @@ export default function Home() {
     {
       title: "Integrity",
       src: "/icons/integrity.svg",
-      description:
-        "We uphold the highest standards in all we do.",
+      description: "We uphold the highest standards in all we do.",
       alt: "Integrity Icon",
     },
   ];
@@ -139,21 +134,12 @@ export default function Home() {
     <div className="font-sans bg-gradient-to-r from-gray-900 to-gray-800 text-light min-h-screen">
       {/* Hero Section */}
       <Section bgColor="relative bg-gradient-to-r from-blue-800 to-blue-700 text-light text-center">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-[-1]"
-          aria-label="Background video showcasing innovation."
+        <motion.div
+          className="relative z-10 bg-black bg-opacity-50 py-20 px-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-          <p>Your browser does not support the video tag.</p>
-        </video>
-
-        {/* Overlay for Text */}
-        <div className="relative z-10 bg-black bg-opacity-50 py-20 px-6">
           <div className="container mx-auto">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg">
               Innovative Solutions for National Security and Business
@@ -162,38 +148,40 @@ export default function Home() {
               Orbis provides technology, consulting, and training to national
               security and business clients worldwide.
             </p>
-            <a
+            <motion.a
               href="#services"
               className="mt-10 inline-block bg-orbitBlue py-3 px-6 rounded-full text-white font-semibold hover:bg-azureBlue transition transform hover:scale-105"
-              aria-label="Explore our services"
+              whileHover={{ scale: 1.1 }}
             >
               Explore Our Services
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* About Section */}
       <Section bgColor="bg-azureBlue text-light text-center">
-        <div className="container mx-auto" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            About Us
-          </h2>
+        <motion.div
+          className="container mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto">
             Based in Washington, D.C., Orbis is a firm comprising subject
             matter experts and leaders from government, defense, and the
             private sector. With deep knowledge of our clients and their
             challenges, we deliver bespoke and innovative solutions.
           </p>
-        </div>
+        </motion.div>
       </Section>
 
       {/* Core Values Section */}
       <Section bgColor="bg-light text-darkBlue">
-        <div className="container mx-auto text-center" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Our Core Values
-          </h2>
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreValues.map((value, index) => (
               <Card
@@ -210,10 +198,8 @@ export default function Home() {
 
       {/* Products Section */}
       <Section bgColor="bg-darkBlue text-light">
-        <div className="container mx-auto text-center" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Our Products
-          </h2>
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <Card
@@ -225,46 +211,6 @@ export default function Home() {
               />
             ))}
           </div>
-        </div>
-      </Section>
-
-      {/* Services Section */}
-      <Section bgColor="bg-light text-darkBlue">
-        <div className="container mx-auto text-center" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Our Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg p-6 rounded-3xl hover:shadow-2xl transition-shadow duration-300"
-                data-aos="zoom-in"
-              >
-                <h3 className="text-xl font-bold text-darkBlue">{service.title}</h3>
-                <p className="mt-2 text-gray-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Call to Action Section */}
-      <Section bgColor="bg-gradient-to-r from-blue-700 to-blue-600 text-darkBlue text-center">
-        <div className="container mx-auto" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Partner With Us
-          </h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            Explore how we can work together to achieve your mission-critical goals.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-orbitBlue py-3 px-6 rounded-full text-white font-semibold hover:bg-darkBlue transition transform hover:scale-105"
-            aria-label="Contact us"
-          >
-            Get in Touch
-          </a>
         </div>
       </Section>
     </div>
