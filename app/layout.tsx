@@ -13,8 +13,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <html lang="en">
-      <body className="bg-accent text-darkBlue font-sans">
+    <>
+      <div className="bg-accent text-darkBlue font-sans">
         {/* Header */}
         <header className="bg-darkBlue text-light py-4 md:py-6 shadow-md sticky top-0 z-50">
           <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
@@ -42,40 +42,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link
                   key={label}
                   href={href}
-                  className="text-orbitBlue hover:text-azureBlue transition font-medium"
+                  className="text-orbitBlue hover:text-azureBlue transition font-bold"
                 >
                   {label}
                 </Link>
               ))}
             </nav>
-
-            {/* Mobile Menu */}
-            <button
-              className="md:hidden text-orbitBlue hover:text-azureBlue focus:outline-none"
-              aria-label="Open Navigation Menu"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="py-8 px-4 md:px-8">
-          {children}
-        </main>
+        <main className="py-8 px-4 md:px-8">{children}</main>
 
         {/* Footer */}
         <footer className="bg-darkBlue text-light py-8 px-4 md:px-8">
@@ -119,25 +96,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-           {/* Legal Information */}
-    <div>
-      <p className="text-sm md:text-base mb-2">
-        &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
-      </p>
-      <p className="text-sm md:text-base">
-        Contact us:{" "}
-        <a
-          href="mailto:impact@orbisops.com"
-          className="text-orbitBlue hover:text-azureBlue transition"
-        >
-          impact@orbisops.com
-        </a>
-      </p>
-      <p className="text-sm md:text-base">
-        <Link href="/privacy" className="text-orbitBlue hover:text-azureBlue transition">
-          Privacy Policy
-        </Link>
-      </p>
-    </div>
-  </div>
-</footer>
+            {/* Legal Information */}
+            <div>
+              <p className="text-sm md:text-base mb-2">
+                &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
+              </p>
+              <p className="text-sm md:text-base">
+                Contact us:{" "}
+                <a
+                  href="mailto:impact@orbisops.com"
+                  className="text-orbitBlue hover:text-azureBlue transition"
+                >
+                  impact@orbisops.com
+                </a>
+              </p>
+              <p className="text-sm md:text-base">
+                <Link href="/privacy" className="text-orbitBlue hover:text-azureBlue transition">
+                  Privacy Policy
+                </Link>
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+}
