@@ -149,50 +149,48 @@ export default function Home() {
 
       {/* Products Section */}
       <section className="bg-darkBlue text-light py-16 px-6">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Our Products</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            {[
-              {
-                title: "Discovery",
-                src: "/products/discovery.png",
-                description:
-                  "An AI-powered platform for digital intelligence and counter-disinformation.",
-              },
-              {
-                title: "Landscape",
-                src: "/products/landscape.png",
-                description:
-                  "A dynamic tool for geospatial analytics and situational awareness.",
-              },
-              {
-                title: "Catalyst",
-                src: "/products/catalyst.png",
-                description:
-                  "A secure platform for integrating complex systems and enabling real-time decision-making.",
-              },
-            ].map((product, index) => (
-              <div
-                key={index}
-                className="bg-light shadow-lg p-6 rounded-lg hover:shadow-2xl transition-shadow duration-300"
-              >
-                <Image
-                  src={product.src}
-                  alt={`${product.title} Product`}
-                  width={96}
-                  height={96}
-                  className="mx-auto mb-4"
-                />
-                <h3 className="text-xl font-bold text-darkBlue">
-                  {product.title}
-                </h3>
-                <p className="mt-2">{product.description}</p>
-              </div>
-            ))}
-          </div>
+  <div className="container mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-white">Our Products</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      {[
+        {
+          title: "Discovery",
+          src: "/products/discovery.png",
+          description:
+            "An AI-powered platform for digital intelligence and counter-disinformation.",
+        },
+        {
+          title: "Landscape",
+          src: "/products/landscape.png",
+          description:
+            "A dynamic tool for geospatial analytics and situational awareness.",
+        },
+        {
+          title: "Catalyst",
+          src: "/products/catalyst.png",
+          description:
+            "A secure platform for integrating complex systems and enabling real-time decision-making.",
+        },
+      ].map((product, index) => (
+        <div
+          key={index}
+          className="bg-azureBlue shadow-lg p-6 rounded-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+        >
+          <Image
+            src={product.src}
+            alt={`${product.title} Product`}
+            width={96}
+            height={96}
+            className="mx-auto mb-4"
+          />
+          <h3 className="text-xl font-bold text-white">{product.title}</h3>
+          <p className="mt-2 text-white">{product.description}</p>
         </div>
-      </section>
-
+      ))}
+    </div>
+  </div>
+</section>
+      
       {/* Call to Action */}
       <section className="bg-azureBlue text-darkBlue py-16 px-6 text-center">
         <div className="container mx-auto">
