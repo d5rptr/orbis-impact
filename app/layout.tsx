@@ -19,11 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="bg-darkBlue text-light py-4 md:py-6 shadow-md sticky top-0 z-50">
           <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
             {/* Logo */}
-            <div className="relative w-20 md:w-28 lg:w-36 aspect-square">
+            <div className="relative w-32 md:w-40 lg:w-48">
               <Image
                 src="/orbis-logo.png"
                 alt="Orbis Logo"
-                fill
+                width={160}
+                height={40} // Adjust dimensions as per your logo's aspect ratio
                 priority
                 className="hover:scale-105 transition-transform"
               />
@@ -82,16 +83,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   href="https://www.linkedin.com/company/orbisoperations"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:scale-110 transition-transform"
+                  className="text-orbitBlue hover:text-azureBlue transition"
                   aria-label="Follow us on LinkedIn"
                 >
-                  <Image
-                    src="/linkedin.svg"
-                    alt="LinkedIn"
-                    width={24}
-                    height={24}
-                    className="opacity-80 hover:opacity-100"
-                  />
+                  LinkedIn
                 </a>
               </div>
             </div>
@@ -113,6 +108,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <p>
                 <Link href="/privacy" className="text-orbitBlue hover:text-azureBlue transition">
                   Privacy Policy
+                </Link>{" "}
+                |{" "}
+                <Link href="/terms" className="text-orbitBlue hover:text-azureBlue transition">
+                  Terms of Use
                 </Link>
               </p>
             </div>
