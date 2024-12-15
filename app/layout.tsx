@@ -6,25 +6,79 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+// Define the structure for navigation links
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+// Reusable Navigation Component
+const Navigation: React.FC<{ links: NavLink[]; onLinkClick?: () => void }> = ({ links, onLinkClick }) => (
+  <ul className="flex flex-col md:flex-row md:space-x-4 lg:space-x-6">
+    {links.map(({ href, label }) => (
+      <li key={label}>
+        <Link
+          href={href}
+          className="text-orbitBlue hover:text-azureBlue transition font-bold block md:inline-block"
+          onClick={onLinkClick}
+        >
+          {label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
+
+// Reusable Footer Section Component
+const FooterSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <div>
+    <h3 className="text-lg font-semibold text-azureBlue mb-2">{title}</h3>
+    {children}
+  </div>
+);
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const navLinks: NavLink[] = [
+    { href: "/focus-areas", label: "Focus Areas" },
+    { href: "/offerings", label: "Offerings" },
+    { href: "/careers", label: "Careers" },
+    { href: "/contact", label: "Contact" },
+  ];
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
 
     // Add 'loaded' class to body after initial render
     document.body.classList.add("loaded");
+
+    // Cleanup AOS on unmount
+    return () => {
+      AOS.refresh();
+    };
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    const handleRouteChange = () => setMenuOpen(false);
+    router.events.on("routeChangeStart", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
-    <div className="bg-accent text-darkBlue font-sans">
+    <div className="bg-accent text-darkBlue font-sans min-h-screen flex flex-col">
       {/* Header */}
       <header className="bg-darkBlue text-light py-4 md:py-6 shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
           {/* Logo */}
           <div className="relative w-32 md:w-40 lg:w-48">
-            <Link href="/">
+            <Link href="/" aria-label="Orbis Home">
               <Image
                 src="/orbis-logo.png"
                 alt="Orbis Logo"
@@ -37,80 +91,68 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-4 lg:space-x-6">
-            {[
-              { href: "/focus-areas", label: "Focus Areas" },
-              { href: "/offerings", label: "Offerings" },
-              { href: "/careers", label: "Careers" },
-              { href: "/contact", label: "Contact" },
-            ].map(({ href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                className="text-orbitBlue hover:text-azureBlue transition font-bold"
-              >
-                {label}
-              </Link>
-            ))}
+          <nav className="hidden md:block">
+            <Navigation links={navLinks} />
           </nav>
 
           {/* Hamburger Icon */}
           <button
-            className="md:hidden text-orbitBlue focus:outline-none"
+            className="md:hidden text-orbitBlue focus:outline-none focus:ring-2 focus:ring-azureBlue rounded"
             onClick={() => setMenuOpen(!isMenuOpen)}
             aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
+            {isMenuOpen ? (
+              // Close Icon
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            ) : (
+              // Hamburger Icon
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <nav className="md:hidden bg-darkBlue text-light py-4 px-4">
-            <ul className="space-y-2">
-              {[
-                { href: "/focus-areas", label: "Focus Areas" },
-                { href: "/offerings", label: "Offerings" },
-                { href: "/careers", label: "Careers" },
-                { href: "/contact", label: "Contact" },
-              ].map(({ href, label }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="block text-orbitBlue hover:text-azureBlue transition font-bold"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        <nav
+          className={`md:hidden bg-darkBlue text-light transition-transform transform ${
+            isMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
+          }`}
+          aria-label="Mobile Navigation"
+        >
+          <div className="px-4 py-4">
+            <Navigation links={navLinks} onLinkClick={() => setMenuOpen(false)} />
+          </div>
+        </nav>
       </header>
 
       {/* Main Content */}
-      <main className="py-8 px-4 md:px-8">{children}</main>
+      <main className="flex-grow py-8 px-4 md:px-8">{children}</main>
 
       {/* Footer */}
       <footer className="bg-darkBlue text-light py-8 px-4 md:px-8">
         <div className="container mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-center md:text-left">
           {/* Contact Information */}
-          <div>
-            <h3 className="text-lg font-semibold text-azureBlue mb-2">Contact Us</h3>
+          <FooterSection title="Contact Us">
             <p>
               <strong>Phone:</strong>{" "}
               <a
@@ -124,12 +166,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               6862 Elm St. Ste 300 <br />
               McLean, VA 22101-3886
             </p>
-          </div>
+          </FooterSection>
 
           {/* Social Media Links */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-azureBlue mb-2">Follow Us</h3>
-            <div className="flex justify-center md:justify-start">
+          <FooterSection title="Follow Us">
+            <div className="flex justify-center md:justify-start space-x-4">
               <a
                 href="https://www.linkedin.com/company/orbisoperations"
                 target="_blank"
@@ -139,11 +180,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 LinkedIn
               </a>
+              {/* Add more social links here if needed */}
             </div>
-          </div>
+          </FooterSection>
 
           {/* Legal Information */}
-          <div>
+          <FooterSection title="Legal">
             <p className="mb-2">
               &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
             </p>
@@ -165,7 +207,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 Terms of Use
               </Link>
             </p>
-          </div>
+          </FooterSection>
         </div>
       </footer>
     </div>
