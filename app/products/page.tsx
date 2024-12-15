@@ -1,9 +1,71 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Type Definitions
+interface Product {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  problems: string[];
+}
+
+interface Service {
+  title: string;
+  description: string;
+  details: string[];
+}
+
+// Reusable Card Component
+const Card: React.FC<{ title: string; description: string; children?: React.ReactNode; image?: string; alt?: string }> = ({ title, description, children, image, alt }) => (
+  <div
+    className="bg-light p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+    data-aos="fade-up"
+  >
+    {image && alt && (
+      <div className="flex justify-center">
+        <Image
+          src={image}
+          alt={alt}
+          width={96}
+          height={96}
+          className="mb-4"
+          loading="lazy"
+        />
+      </div>
+    )}
+    <h2 className="text-xl font-bold text-darkBlue">{title}</h2>
+    <p className="mt-2 text-darkBlue">{description}</p>
+    {children && <div className="mt-4">{children}</div>}
+  </div>
+);
+
+// Reusable List Component
+const List: React.FC<{ items: string[] }> = ({ items }) => (
+  <ul className="list-disc pl-5 mt-2 text-darkBlue">
+    {items.map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+  </ul>
+);
+
+// Reusable Section Component
+const Section: React.FC<{ bgColor: string; children: React.ReactNode }> = ({ bgColor, children }) => (
+  <section className={`relative ${bgColor} py-16 px-6`}>
+    {children}
+  </section>
+);
 
 export default function Products() {
-  const products = [
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+  const products: Product[] = [
     {
       title: "Discovery",
       description: "An AI-powered platform for digital intelligence and counter-disinformation.",
@@ -36,7 +98,7 @@ export default function Products() {
     },
   ];
 
-  const services = [
+  const services: Service[] = [
     {
       title: "Research & Analysis",
       description: "Deep insights into global trends and challenges to inform decision-making.",
@@ -100,59 +162,52 @@ export default function Products() {
   ];
 
   return (
-    <div className="py-16 px-6">
-      <div className="container mx-auto text-center">
-        <h1 className="text-4xl font-bold text-azureBlue">Our Products and Services</h1>
-        
-        {/* Products Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {products.map((product, index) => (
-            <div key={index} className="bg-light p-6 rounded-lg shadow-lg">
-              <Image
-                src={product.image}
-                alt={product.alt}
-                width={96}
-                height={96}
-                className="mx-auto mb-4"
-                priority
-              />
-              <h2 className="text-xl font-bold text-darkBlue">{product.title}</h2>
-              <p className="mt-2 text-darkBlue">{product.description}</p>
-              
-              <div className="mt-6">
-                <h3 className="text-lg font-semibold text-azureBlue">Problems Solved:</h3>
-                <ul className="list-disc pl-5 mt-2 text-darkBlue">
-                  {product.problems.map((problem, index) => (
-                    <li key={index}>{problem}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+    <div className="font-sans bg-gradient-to-r from-gray-900 to-gray-800 text-light min-h-screen">
+      <Section bgColor="bg-gradient-to-r from-gray-900 to-gray-800 text-light text-center">
+        <div className="container mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-azureBlue mb-8" data-aos="fade-down">
+            Our Products and Services
+          </h1>
         </div>
+      </Section>
 
-        {/* Services Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-azureBlue">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {services.map((service, index) => (
-              <div key={index} className="bg-light p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-darkBlue">{service.title}</h3>
-                <p className="mt-2 text-darkBlue">{service.description}</p>
-
+      {/* Products Section */}
+      <Section bgColor="bg-darkBlue text-light">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-azureBlue text-center mb-12" data-aos="fade-up">
+            Our Products
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <Card key={index} title={product.title} description={product.description} image={product.image} alt={product.alt}>
                 <div className="mt-4">
-                  <h4 className="text-lg font-semibold text-azureBlue">What This Service Includes:</h4>
-                  <ul className="list-disc pl-5 mt-2 text-darkBlue">
-                    {service.details.map((detail, index) => (
-                      <li key={index}>{detail}</li>
-                    ))}
-                  </ul>
+                  <h3 className="text-lg font-semibold text-azureBlue">Problems Solved:</h3>
+                  <List items={product.problems} />
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
-      </div>
+      </Section>
+
+      {/* Services Section */}
+      <Section bgColor="bg-light text-darkBlue">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-azureBlue text-center mb-12" data-aos="fade-up">
+            Our Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} title={service.title} description={service.description}>
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-azureBlue">What This Service Includes:</h3>
+                  <List items={service.details} />
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
     </div>
   );
 }
