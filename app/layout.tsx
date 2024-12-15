@@ -13,8 +13,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <>
-      <div className="bg-accent text-darkBlue font-sans">
+    <html lang="en">
+      <body className="bg-accent text-darkBlue font-sans">
         {/* Header */}
         <header className="bg-darkBlue text-light py-4 md:py-6 shadow-md sticky top-0 z-50">
           <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
@@ -23,8 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Image
                 src="/orbis-logo.png"
                 alt="Orbis Logo"
-                layout="fill"
-                objectFit="contain"
+                fill
                 priority
                 className="hover:scale-105 transition-transform"
               />
@@ -60,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Contact Information */}
             <div>
               <h3 className="text-lg font-semibold text-azureBlue mb-2">Contact Us</h3>
-              <p className="text-sm md:text-base">
+              <p>
                 <strong>Phone:</strong>{" "}
                 <a
                   href="tel:17036390911"
@@ -69,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   1-703-639-0911
                 </a>
               </p>
-              <p className="text-sm md:text-base">
+              <p>
                 6862 Elm St. Ste 300 <br />
                 McLean, VA 22101-3886
               </p>
@@ -84,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:scale-110 transition-transform"
+                  aria-label="Follow us on LinkedIn"
                 >
                   <Image
                     src="/linkedin.svg"
@@ -98,10 +98,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Legal Information */}
             <div>
-              <p className="text-sm md:text-base mb-2">
+              <p className="mb-2">
                 &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
               </p>
-              <p className="text-sm md:text-base">
+              <p>
                 Contact us:{" "}
                 <a
                   href="mailto:impact@orbisops.com"
@@ -110,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   impact@orbisops.com
                 </a>
               </p>
-              <p className="text-sm md:text-base">
+              <p>
                 <Link href="/privacy" className="text-orbitBlue hover:text-azureBlue transition">
                   Privacy Policy
                 </Link>
@@ -118,7 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </footer>
-      </div>
-    </>
+      </body>
+    </html>
   );
 }
