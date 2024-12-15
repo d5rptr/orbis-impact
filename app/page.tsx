@@ -34,30 +34,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Slanted Divider */}
+      {/* Curved Divider */}
       <div className="relative">
         <svg
-          viewBox="0 0 1440 100"
+          viewBox="0 0 1440 320"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute top-0 w-full"
+          className="w-full"
         >
           <path
-            d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"
             fill="#4168B1"
-          ></path>
+            d="M0,192L48,186.7C96,181,192,171,288,176C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          />
         </svg>
       </div>
 
       {/* About Section */}
-      <section
-        className="relative bg-azureBlue text-darkBlue py-20 px-6 bg-fixed bg-center bg-cover"
-        style={{
-          backgroundImage: "url('/images/parallax-background.jpg')",
-        }}
-      >
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-light">About Us</h2>
-          <p className="mt-4 text-lg md:text-xl text-light">
+      <section className="bg-azureBlue text-light py-20 px-6 text-center">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold">About Us</h2>
+          <p className="mt-4 text-lg md:text-xl">
             Based in Washington, D.C., Orbis is a firm comprising subject
             matter experts and leaders from government, defense, and the
             private sector. With deep knowledge of our clients and their
@@ -66,12 +61,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Slanted Divider */}
+      <div className="relative">
+        <svg
+          viewBox="0 0 1440 320"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            fill="#FFFFFF"
+            d="M0,320L1440,160L1440,320L0,320Z"
+          />
+        </svg>
+      </div>
+
       {/* Core Values Section */}
-      <section className="bg-light py-16 px-6">
+      <section className="bg-light text-darkBlue py-16 px-6">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-darkBlue">
-            Our Core Values
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
             {[
               {
@@ -108,22 +115,32 @@ export default function Home() {
                   height={64}
                   className="mx-auto mb-4"
                 />
-                <h3 className="text-xl font-bold text-darkBlue">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-darkBlue">{value.description}</p>
+                <h3 className="text-xl font-bold">{value.title}</h3>
+                <p className="mt-2">{value.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Wavy Divider */}
+      <div className="relative">
+        <svg
+          viewBox="0 0 1440 320"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            fill="#17345C"
+            d="M0,96L60,90.7C120,85,240,75,360,64C480,53,600,43,720,58.7C840,75,960,117,1080,128C1200,139,1320,117,1380,106.7L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+          />
+        </svg>
+      </div>
+
       {/* Products Section */}
-      <section className="bg-gradient-to-r from-white to-light py-16 px-6">
+      <section className="bg-darkBlue text-light py-16 px-6">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-azureBlue">
-            Our Products
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Our Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             {[
               {
@@ -147,7 +164,7 @@ export default function Home() {
             ].map((product, index) => (
               <div
                 key={index}
-                className="bg-white border border-azureBlue shadow-md p-6 rounded-3xl hover:shadow-lg hover:scale-105 transition-transform duration-300"
+                className="bg-white text-darkBlue shadow-md p-6 rounded-3xl hover:shadow-lg hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src={product.src}
@@ -156,44 +173,105 @@ export default function Home() {
                   height={96}
                   className="mx-auto mb-4"
                 />
-                <h3 className="text-xl font-bold text-azureBlue">
-                  {product.title}
-                </h3>
-                <p className="mt-2 text-azureBlue">{product.description}</p>
+                <h3 className="text-xl font-bold">{product.title}</h3>
+                <p className="mt-2">{product.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Slanted Divider */}
+      <div className="relative">
+        <svg
+          viewBox="0 0 1440 320"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            fill="#FFFFFF"
+            d="M0,320L1440,160L1440,320L0,320Z"
+          />
+        </svg>
+      </div>
+
       {/* Services Section */}
-      <section
-        className="relative bg-darkBlue text-light py-16 px-6"
-        style={{
-          backgroundImage: "url('/images/parallax-services.jpg')",
-          backgroundAttachment: "fixed",
-        }}
-      >
+      <section className="bg-light text-darkBlue py-16 px-6">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {[
-              { title: "Research & Analysis", description: "..." },
-              { title: "Training", description: "..." },
-              { title: "OSINT Advisory", description: "..." },
-              { title: "Strategic Communications", description: "..." },
-              { title: "Consulting", description: "..." },
-              { title: "Data as a Service", description: "..." },
+              {
+                title: "Research & Analysis",
+                description:
+                  "Deep insights into global trends and challenges to inform decision-making.",
+              },
+              {
+                title: "Training",
+                description:
+                  "Customized training programs to enhance skills and operational readiness.",
+              },
+              {
+                title: "OSINT Advisory",
+                description:
+                  "Expert guidance in leveraging open-source intelligence for actionable insights.",
+              },
+              {
+                title: "Strategic Communications",
+                description:
+                  "Crafting narratives and communication strategies to achieve organizational goals.",
+              },
+              {
+                title: "Consulting",
+                description:
+                  "Tailored consulting solutions to address your unique challenges and objectives.",
+              },
+              {
+                title: "Data as a Service",
+                description:
+                  "Secure and scalable solutions for real-time data access and analytics.",
+              },
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-light text-darkBlue shadow-lg p-6 rounded-3xl hover:shadow-xl transition-shadow duration-200"
+                className="bg-white shadow-lg p-6 rounded-3xl hover:shadow-xl transition-shadow duration-200"
               >
                 <h3 className="text-xl font-bold">{service.title}</h3>
                 <p className="mt-2">{service.description}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Curved Divider */}
+      <div className="relative">
+        <svg
+          viewBox="0 0 1440 320"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            fill="#4168B1"
+            d="M0,192L48,186.7C96,181,192,171,288,176C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          />
+        </svg>
+      </div>
+
+      {/* Call to Action */}
+      <section className="bg-azureBlue text-darkBlue py-16 px-6 text-center">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold">Partner With Us</h2>
+          <p className="mt-4 text-lg md:text-xl">
+            Explore how we can work together to achieve your mission-critical goals.
+          </p>
+          <a
+            href="/contact"
+            className="mt-6 inline-block bg-orbitBlue py-3 px-6 rounded text-light hover:bg-darkBlue transition transform hover:scale-105"
+            aria-label="Contact us"
+          >
+            Get in Touch
+          </a>
         </div>
       </section>
     </div>
