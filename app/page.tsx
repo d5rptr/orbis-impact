@@ -13,13 +13,11 @@ export default function Home() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover z-[-1]"
           aria-label="Background video showcasing innovation."
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
-          <p className="relative z-20 text-light">
-            Your browser does not support the video tag.
-          </p>
+          <p>Your browser does not support the video tag.</p>
         </video>
 
         {/* Overlay for Text */}
@@ -52,7 +50,7 @@ export default function Home() {
 
       {/* About Section */}
       <section
-        className="bg-azureBlue text-darkBlue py-20 px-6 bg-fixed bg-center bg-cover"
+        className="relative bg-azureBlue text-darkBlue py-20 px-6 bg-fixed bg-center bg-cover"
         style={{
           backgroundImage: "url('/images/parallax-background.jpg')",
         }}
@@ -101,7 +99,7 @@ export default function Home() {
             ].map((value, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg p-6 rounded-lg hover:shadow-2xl transition-shadow duration-200"
+                className="bg-white shadow-lg p-6 rounded-3xl hover:shadow-2xl transition-shadow duration-200"
               >
                 <Image
                   src={value.src}
@@ -121,9 +119,11 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section className="bg-white py-16 px-6">
+      <section className="bg-gradient-to-r from-white to-light py-16 px-6">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-azureBlue">Our Products</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-azureBlue">
+            Our Products
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             {[
               {
@@ -147,7 +147,7 @@ export default function Home() {
             ].map((product, index) => (
               <div
                 key={index}
-                className="bg-white border border-azureBlue shadow-md p-6 rounded-lg hover:shadow-lg hover:scale-105 transition-transform duration-300"
+                className="bg-white border border-azureBlue shadow-md p-6 rounded-3xl hover:shadow-lg hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src={product.src}
@@ -156,7 +156,9 @@ export default function Home() {
                   height={96}
                   className="mx-auto mb-4"
                 />
-                <h3 className="text-xl font-bold text-azureBlue">{product.title}</h3>
+                <h3 className="text-xl font-bold text-azureBlue">
+                  {product.title}
+                </h3>
                 <p className="mt-2 text-azureBlue">{product.description}</p>
               </div>
             ))}
@@ -165,68 +167,33 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-light py-16 px-6">
+      <section
+        className="relative bg-darkBlue text-light py-16 px-6"
+        style={{
+          backgroundImage: "url('/images/parallax-services.jpg')",
+          backgroundAttachment: "fixed",
+        }}
+      >
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-darkBlue">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {[
-              {
-                title: "Research & Analysis",
-                description:
-                  "Deep insights into global trends and challenges to inform decision-making.",
-              },
-              {
-                title: "Training",
-                description:
-                  "Customized training programs to enhance skills and operational readiness.",
-              },
-              {
-                title: "OSINT Advisory",
-                description:
-                  "Expert guidance in leveraging open-source intelligence for actionable insights.",
-              },
-              {
-                title: "Strategic Communications",
-                description:
-                  "Crafting narratives and communication strategies to achieve organizational goals.",
-              },
-              {
-                title: "Consulting",
-                description:
-                  "Tailored consulting solutions to address your unique challenges and objectives.",
-              },
-              {
-                title: "Data as a Service",
-                description:
-                  "Secure and scalable solutions for real-time data access and analytics.",
-              },
+              { title: "Research & Analysis", description: "..." },
+              { title: "Training", description: "..." },
+              { title: "OSINT Advisory", description: "..." },
+              { title: "Strategic Communications", description: "..." },
+              { title: "Consulting", description: "..." },
+              { title: "Data as a Service", description: "..." },
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-200"
+                className="bg-light text-darkBlue shadow-lg p-6 rounded-3xl hover:shadow-xl transition-shadow duration-200"
               >
-                <h3 className="text-xl font-bold text-darkBlue">{service.title}</h3>
-                <p className="mt-2 text-darkBlue">{service.description}</p>
+                <h3 className="text-xl font-bold">{service.title}</h3>
+                <p className="mt-2">{service.description}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="bg-azureBlue text-darkBlue py-16 px-6 text-center">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold">Partner With Us</h2>
-          <p className="mt-4 text-lg md:text-xl">
-            Explore how we can work together to achieve your mission-critical goals.
-          </p>
-          <a
-            href="/contact"
-            className="mt-6 inline-block bg-orbitBlue py-3 px-6 rounded text-light hover:bg-darkBlue transition transform hover:scale-105"
-            aria-label="Contact us"
-          >
-            Get in Touch
-          </a>
         </div>
       </section>
     </div>
