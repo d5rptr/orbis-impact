@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 // Force dynamic rendering for this page
 export const dynamic = "force-dynamic";
@@ -13,14 +14,32 @@ const Contact: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gradient-to-br from-azureBlue via-orbitBlue to-darkBlue text-white">
-      <div className="text-center mb-8 px-4">
+    <motion.div
+      className="flex flex-col items-center justify-center min-h-screen py-12 bg-gradient-to-br from-azureBlue via-orbitBlue to-darkBlue text-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Header Section */}
+      <motion.div
+        className="text-center mb-8 px-4"
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-light">Contact Us</h1>
         <p className="text-base md:text-lg mb-6">
           We’d love to hear from you! Fill out the form below, and we’ll get back to you shortly.
         </p>
-      </div>
-      <div className="w-full max-w-4xl px-4">
+      </motion.div>
+
+      {/* Form Section */}
+      <motion.div
+        className="w-full max-w-4xl px-4"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
         {isClient && (
           <iframe
             src="https://forms.monday.com/forms/embed/77dda2f952e838e550d483bdd765f241?r=use1"
@@ -32,8 +51,8 @@ const Contact: React.FC = () => {
             aria-label="Contact Us Form"
           />
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
