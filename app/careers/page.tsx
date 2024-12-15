@@ -3,6 +3,14 @@ import { useEffect } from "react";
 export default function Careers() {
   useEffect(() => {
     const scriptId = "clearcompany-script";
+    const containerId = "clearcompany-careers";
+
+    // Ensure the target container is ready
+    const careersContainer = document.getElementById(containerId);
+    if (!careersContainer) {
+      console.error("Target container not found");
+      return;
+    }
 
     // Check if the script already exists
     if (!document.getElementById(scriptId)) {
@@ -12,17 +20,18 @@ export default function Careers() {
       script.src =
         "https://careers-content.clearcompany.com/js/v1/career-site.js?siteId=246a2adf-896b-41b9-8cef-8e9c09fae489";
       script.async = true;
-      document.body.appendChild(script);
+
+      // Attach script to the container, not the global body
+      careersContainer.appendChild(script);
     }
 
     return () => {
-      // Clean up the script and injected content
+      // Cleanup: Remove the script and container content
       const existingScript = document.getElementById(scriptId);
       if (existingScript) {
-        document.body.removeChild(existingScript);
+        existingScript.remove();
       }
 
-      const careersContainer = document.getElementById("clearcompany-careers");
       if (careersContainer) {
         careersContainer.innerHTML = ""; // Clear dynamically injected content
       }
