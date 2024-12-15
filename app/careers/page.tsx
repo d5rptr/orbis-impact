@@ -1,42 +1,44 @@
-"use client"; 
+"use client";
 
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Careers() {
   useEffect(() => {
     const scriptId = "clearcompany-script";
     const containerId = "clearcompany-careers";
 
-    // Ensure the target container is ready
-    const careersContainer = document.getElementById(containerId);
-    if (!careersContainer) {
-      console.error("Target container not found");
-      return;
-    }
+    const injectScript = () => {
+      // Ensure the target container exists
+      const careersContainer = document.getElementById(containerId);
+      if (!careersContainer) {
+        console.error("Target container not found");
+        return;
+      }
 
-    // Check if the script already exists
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.id = scriptId;
-      script.src =
-        "https://careers-content.clearcompany.com/js/v1/career-site.js?siteId=246a2adf-896b-41b9-8cef-8e9c09fae489";
-      script.async = true;
+      // Check if the script is already injected
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = scriptId;
+        script.src =
+          "https://careers-content.clearcompany.com/js/v1/career-site.js?siteId=246a2adf-896b-41b9-8cef-8e9c09fae489";
+        script.async = true;
 
-      // Attach script to the container, not the global body
-      careersContainer.appendChild(script);
-    }
+        // Append script directly to the container
+        careersContainer.appendChild(script);
+      }
+    };
+
+    injectScript();
 
     return () => {
-      // Cleanup: Remove the script and container content
+      // Cleanup: Remove the script and its content
       const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        existingScript.remove();
-      }
+      if (existingScript) existingScript.remove();
 
-      if (careersContainer) {
-        careersContainer.innerHTML = ""; // Clear dynamically injected content
-      }
+      const careersContainer = document.getElementById(containerId);
+      if (careersContainer) careersContainer.innerHTML = "";
     };
   }, []);
 
@@ -44,20 +46,35 @@ export default function Careers() {
     <div className="py-16 px-6">
       <div className="container mx-auto">
         {/* Header Section */}
-        <section className="bg-darkBlue text-light py-16 px-6 text-center">
+        <motion.section
+          className="bg-darkBlue text-light py-16 px-6 text-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
           <p className="text-lg">
             Explore opportunities and be a part of our mission. Below, you&apos;ll find all our current openings.
           </p>
-        </section>
+        </motion.section>
 
         {/* Careers Section */}
-        <section className="py-16">
+        <motion.section
+          className="py-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <div id="clearcompany-careers" className="bg-light p-6 rounded-lg shadow-lg"></div>
-        </section>
+        </motion.section>
 
         {/* Contact Section */}
-        <section className="bg-darkBlue text-light py-16 px-6 text-center">
+        <motion.section
+          className="bg-darkBlue text-light py-16 px-6 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <h2 className="text-3xl font-bold">Don&apos;t See Your Role?</h2>
           <p className="mt-4">
             We&apos;re always on the lookout for exceptional talent. Send us your resume, and we&apos;ll be in touch if
@@ -69,7 +86,7 @@ export default function Careers() {
           >
             Contact Us
           </a>
-        </section>
+        </motion.section>
       </div>
     </div>
   );
