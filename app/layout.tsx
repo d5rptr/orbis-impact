@@ -22,14 +22,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
             {/* Logo */}
             <div className="relative w-32 md:w-40 lg:w-48">
-              <Image
-                src="/orbis-logo.png"
-                alt="Orbis Logo"
-                width={160}
-                height={40} // Adjust dimensions as per your logo's aspect ratio
-                priority
-                className="hover:scale-105 transition-transform"
-              />
+              <Link href="/">
+                <a>
+                  <Image
+                    src="/orbis-logo.png"
+                    alt="Orbis Logo"
+                    width={160}
+                    height={40} // Adjust dimensions as per your logo's aspect ratio
+                    priority
+                    className="hover:scale-105 transition-transform"
+                  />
+                </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
