@@ -32,11 +32,13 @@ npm install
 yarn install
 # or
 pnpm install
+```
 
 Run the Development Server
 
 Start the local development server:
 
+```bash
 npm run dev
 # or
 yarn dev
@@ -44,6 +46,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
 
 Open http://localhost:3000 in your browser to see the site in action. The page auto-updates as you edit files.
 
