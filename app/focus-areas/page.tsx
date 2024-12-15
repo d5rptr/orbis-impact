@@ -1,17 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
+import { motion } from "framer-motion";
 
 // Mark the page for dynamic rendering
 export const dynamic = "force-dynamic";
 
 const FocusAreas: React.FC = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Initialize AOS animations on the client side
-  }, []);
-
   const areas = [
     {
       title: "Digital Intelligence",
@@ -44,25 +39,41 @@ const FocusAreas: React.FC = () => {
         "Enhancing predictive modeling for future scenarios.",
       ],
     },
-    // Other areas omitted for brevity
+    // Add more areas as needed
   ];
 
   return (
     <div className="py-16 px-6">
       <div className="container mx-auto text-center">
-        <section aria-label="Focus Areas">
+        <motion.section
+          aria-label="Focus Areas"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="text-4xl font-bold text-azureBlue">Focus Areas</h1>
           <p className="mt-4 text-lg text-gray-700">
             Our focus areas represent the core domains in which Orbis delivers value to clients. Each area tackles 
             specific challenges faced by governments and businesses, ensuring our solutions are tailored to meet 
             real-world needs effectively.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+            }}
+          >
             {areas.map((area, index) => (
-              <article
+              <motion.article
                 key={index}
                 className="bg-light p-6 rounded-lg shadow-lg"
-                data-aos="fade-up"
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 },
+                }}
                 aria-labelledby={`focus-area-title-${index}`}
               >
                 <h2
@@ -77,10 +88,10 @@ const FocusAreas: React.FC = () => {
                     <li key={idx}>{problem}</li>
                   ))}
                 </ul>
-              </article>
+              </motion.article>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
       </div>
     </div>
   );
