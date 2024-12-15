@@ -119,24 +119,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-            {/* Legal Information */}
-            <div>
-              <p className="text-sm md:text-base mb-2">
-                &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
-              </p>
-              <p className="text-sm md:text-base">
-                Contact us:{" "}
-                <a
-                  href="mailto:impact@orbisops.com"
-                  className="text-orbitBlue hover:text-azureBlue transition"
-                >
-                  impact@orbisops.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </footer>
-      </body>
-    </html>
-  );
-}
+           {/* Legal Information */}
+    <div>
+      <p className="text-sm md:text-base mb-2">
+        &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
+      </p>
+      <p className="text-sm md:text-base">
+        Contact us:{" "}
+        <a
+          href="mailto:impact@orbisops.com"
+          className="text-orbitBlue hover:text-azureBlue transition"
+        >
+          impact@orbisops.com
+        </a>
+      </p>
+      <p className="text-sm md:text-base">
+        <Link href="/privacy" className="text-orbitBlue hover:text-azureBlue transition">
+          Privacy Policy
+        </Link>
+      </p>
+    </div>
+  </div>
+</footer>
