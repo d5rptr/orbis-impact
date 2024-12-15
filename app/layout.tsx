@@ -56,9 +56,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // Add 'loaded' class to body after initial render
     document.body.classList.add("loaded");
 
-    // Cleanup AOS on unmount
+    // Cleanup AOS instance on component unmount
     return () => {
-      AOS.refresh();
+      AOS.refreshHard();
     };
   }, []);
 
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 src="/orbis-logo.png"
                 alt="Orbis Logo"
                 width={160}
-                height={40} // Adjust dimensions as per your logo's aspect ratio
+                height={40}
                 priority
                 className="hover:scale-105 transition-transform"
               />
@@ -180,7 +180,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 LinkedIn
               </a>
-              {/* Add more social links here if needed */}
             </div>
           </FooterSection>
 
