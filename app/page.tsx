@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div>
@@ -50,40 +53,48 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
             {/* Commitment */}
             <div data-aos="fade-up" className="bg-white shadow p-6 rounded-lg">
-              <img
+              <Image
                 src="/icons/commitment.svg"
                 alt="Commitment Icon"
-                className="w-16 h-16 mx-auto mb-4 object-contain"
+                width={64}
+                height={64}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Commitment</h3>
-              <p className="mt-2 text-darkBlue">We are dedicated to our clients' missions and objectives.</p>
+              <p className="mt-2 text-darkBlue">We are dedicated to our clients&apos; missions and objectives.</p>
             </div>
             {/* Innovation */}
             <div data-aos="fade-up" className="bg-white shadow p-6 rounded-lg">
-              <img
+              <Image
                 src="/icons/innovation.svg"
                 alt="Innovation Icon"
-                className="w-16 h-16 mx-auto mb-4 object-contain"
+                width={64}
+                height={64}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Innovation</h3>
               <p className="mt-2 text-darkBlue">We craft creative and forward-leaning solutions.</p>
             </div>
             {/* Agility */}
             <div data-aos="fade-up" className="bg-white shadow p-6 rounded-lg">
-              <img
+              <Image
                 src="/icons/agility.svg"
                 alt="Agility Icon"
-                className="w-16 h-16 mx-auto mb-4 object-contain"
+                width={64}
+                height={64}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Agility</h3>
               <p className="mt-2 text-darkBlue">We adapt to complex and evolving challenges.</p>
             </div>
             {/* Integrity */}
             <div data-aos="fade-up" className="bg-white shadow p-6 rounded-lg">
-              <img
+              <Image
                 src="/icons/integrity.svg"
                 alt="Integrity Icon"
-                className="w-16 h-16 mx-auto mb-4 object-contain"
+                width={64}
+                height={64}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Integrity</h3>
               <p className="mt-2 text-darkBlue">We uphold the highest standards in all we do.</p>
@@ -99,10 +110,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             {/* Discovery */}
             <div data-aos="fade-up" className="bg-light shadow-lg p-6 rounded-lg">
-              <img
+              <Image
                 src="/products/discovery.png"
                 alt="Discovery Product"
-                className="w-24 h-24 mx-auto mb-4 object-contain"
+                width={96}
+                height={96}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Discovery</h3>
               <p className="mt-2">
@@ -111,10 +124,12 @@ export default function Home() {
             </div>
             {/* Landscape */}
             <div data-aos="fade-up" className="bg-light shadow-lg p-6 rounded-lg">
-              <img
+              <Image
                 src="/products/landscape.png"
                 alt="Landscape Product"
-                className="w-24 h-24 mx-auto mb-4 object-contain"
+                width={96}
+                height={96}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Landscape</h3>
               <p className="mt-2">
@@ -123,10 +138,12 @@ export default function Home() {
             </div>
             {/* Catalyst */}
             <div data-aos="fade-up" className="bg-light shadow-lg p-6 rounded-lg">
-              <img
+              <Image
                 src="/products/catalyst.png"
                 alt="Catalyst Product"
-                className="w-24 h-24 mx-auto mb-4 object-contain"
+                width={96}
+                height={96}
+                className="mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-darkBlue">Catalyst</h3>
               <p className="mt-2">
@@ -144,12 +161,12 @@ export default function Home() {
           <p className="mt-4 text-lg md:text-xl">
             Explore how we can work together to achieve your mission-critical goals.
           </p>
-          <a
+          <Link
             href="/contact"
             className="mt-6 inline-block bg-azureBlue py-3 px-6 rounded text-light hover:bg-orbitBlue transition"
           >
             Get in Touch
-          </a>
+          </Link>
         </div>
       </section>
     </div>
