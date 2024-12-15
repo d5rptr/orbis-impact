@@ -148,9 +148,10 @@ export default function Home() {
       </div>
 
       {/* Products Section */}
-      <section className="bg-darkBlue text-light py-16 px-6">
+      
+    <section className="bg-white py-16 px-6">
   <div className="container mx-auto text-center">
-    <h2 className="text-3xl md:text-4xl font-bold text-white">Our Products</h2>
+    <h2 className="text-3xl md:text-4xl font-bold text-azureBlue">Our Products</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
       {[
         {
@@ -174,7 +175,7 @@ export default function Home() {
       ].map((product, index) => (
         <div
           key={index}
-          className="bg-azureBlue shadow-lg p-6 rounded-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+          className="bg-white border border-azureBlue shadow-md p-6 rounded-lg hover:shadow-lg hover:scale-105 transition-transform duration-300"
         >
           <Image
             src={product.src}
@@ -183,8 +184,8 @@ export default function Home() {
             height={96}
             className="mx-auto mb-4"
           />
-          <h3 className="text-xl font-bold text-white">{product.title}</h3>
-          <p className="mt-2 text-white">{product.description}</p>
+          <h3 className="text-xl font-bold text-azureBlue">{product.title}</h3>
+          <p className="mt-2 text-azureBlue">{product.description}</p>
         </div>
       ))}
     </div>
