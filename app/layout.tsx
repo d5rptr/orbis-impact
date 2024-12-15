@@ -2,6 +2,7 @@
 
 import './globals.css';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link for navigation
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
@@ -23,8 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Image
                   src="/orbis-logo.png" // Ensure this matches your logo file in the public/ directory
                   alt="Orbis Logo"
-                  layout="fill"
-                  objectFit="contain"
+                  fill // Automatically adjusts size
+                  className="object-contain" // Maintains aspect ratio
                   priority
                 />
               </div>
@@ -32,21 +33,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Navigation */}
             <nav className="flex flex-wrap justify-end">
-              <a href="/" className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">
-                Home
-              </a>
-              <a href="/focus-areas" className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">
-                Focus Areas
-              </a>
-              <a href="/products" className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">
-                Products
-              </a>
-              <a href="/careers" className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">
-                Careers
-              </a>
-              <a href="/contact" className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">
-                Contact
-              </a>
+              <Link href="/" aria-label="Home">
+                <a className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">Home</a>
+              </Link>
+              <Link href="/focus-areas" aria-label="Focus Areas">
+                <a className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">Focus Areas</a>
+              </Link>
+              <Link href="/products" aria-label="Products">
+                <a className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">Products</a>
+              </Link>
+              <Link href="/careers" aria-label="Careers">
+                <a className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">Careers</a>
+              </Link>
+              <Link href="/contact" aria-label="Contact">
+                <a className="mx-2 md:mx-4 text-orbitBlue hover:text-azureBlue transition">Contact</a>
+              </Link>
             </nav>
           </div>
         </header>
