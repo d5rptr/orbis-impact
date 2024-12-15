@@ -29,7 +29,7 @@ const Card: React.FC<{
   delay?: number;
 }> = ({ title, description, children, image, alt, delay = 0 }) => (
   <motion.div
-    className="bg-light p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+    className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay }}
@@ -185,37 +185,6 @@ export default function Products() {
                     Problems Solved:
                   </h3>
                   <List items={product.problems} />
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Services Section */}
-      <Section bgColor="bg-light text-darkBlue">
-        <div className="container mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-azureBlue text-center mb-12"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Our Services
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                title={service.title}
-                description={service.description}
-                delay={index * 0.2}
-              >
-                <div className="mt-4">
-                  <h3 className="text-lg font-semibold text-azureBlue">
-                    What This Service Includes:
-                  </h3>
-                  <List items={service.details} />
                 </div>
               </Card>
             ))}
