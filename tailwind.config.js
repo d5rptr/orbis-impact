@@ -21,6 +21,9 @@ module.exports = {
         accent: "#F8F9FA", // Light gray for background
         danger: "#FF5A5A", // Optional: Add a danger (error) color
         success: "#4CAF50", // Optional: Add a success color
+        // Adding dark mode colors for potential future support
+        darkAccent: "#212529", // Dark gray for background in dark mode
+        darkLight: "#343A40", // Dark text for light mode
       },
       // Add container settings for better responsiveness
       container: {
@@ -29,15 +32,31 @@ module.exports = {
       },
       // Extend spacing, if needed
       spacing: {
-        18: "4.5rem", // Example: Custom spacing value
+        18: "4.5rem", // Custom spacing value
         36: "9rem",
+        72: "18rem", // Adding a larger spacing value for wider sections
       },
       // Add optional box shadow presets
       boxShadow: {
         light: "0 2px 4px rgba(0, 0, 0, 0.1)", // Light shadow
         medium: "0 4px 6px rgba(0, 0, 0, 0.2)", // Medium shadow
+        heavy: "0 10px 15px rgba(0, 0, 0, 0.3)", // Heavy shadow for important elements
+      },
+      // Extend opacity utilities for transparency effects
+      opacity: {
+        85: "0.85", // Custom opacity level
+        90: "0.9",  // Custom opacity level
+      },
+      // Extend breakpoints for responsive design
+      screens: {
+        sm: "640px", // Small screens (mobile)
+        md: "768px", // Medium screens (tablet)
+        lg: "1024px", // Large screens (desktop)
+        xl: "1280px", // Extra large screens
+        "2xl": "1536px", // Extra extra large screens
       },
     },
   },
+  darkMode: "class", // Enabling dark mode support
   plugins: [],
 };
