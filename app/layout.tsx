@@ -39,9 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-4 lg:space-x-6">
               {[
-                { href: "/", label: "Home" },
                 { href: "/focus-areas", label: "Focus Areas" },
-                { href: "/products", label: "Products" },
+                { href: "/offerings", label: "Offerings" }, {/* Changed from "Products" to "Offerings" */}
                 { href: "/careers", label: "Careers" },
                 { href: "/contact", label: "Contact" },
               ].map(({ href, label }) => (
@@ -83,9 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav className="md:hidden bg-darkBlue text-light py-4 px-4">
               <ul className="space-y-2">
                 {[
-                  { href: "/", label: "Home" },
                   { href: "/focus-areas", label: "Focus Areas" },
-                  { href: "/products", label: "Products" },
+                  { href: "/offerings", label: "Offerings" }, {/* Changed from "Products" to "Offerings" */}
                   { href: "/careers", label: "Careers" },
                   { href: "/contact", label: "Contact" },
                 ].map(({ href, label }) => (
