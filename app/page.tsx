@@ -35,21 +35,19 @@ export default function Home() {
       </section>
 
       {/* Curved Divider */}
-      <div className="relative">
-        <svg
-          viewBox="0 0 1440 320"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <path
-            fill="#4168B1"
-            d="M0,192L48,186.7C96,181,192,171,288,176C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          />
-        </svg>
-      </div>
+      <svg
+        className="w-full"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#4168B1"
+          d="M0,256L120,240C240,224,480,192,720,202.7C960,213,1200,267,1320,293.3L1440,320L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        />
+      </svg>
 
       {/* About Section */}
-      <section className="bg-azureBlue text-light py-20 px-6 text-center">
+      <section className="bg-azureBlue text-light py-16 px-6 text-center">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">About Us</h2>
           <p className="mt-4 text-lg md:text-xl">
@@ -62,18 +60,16 @@ export default function Home() {
       </section>
 
       {/* Slanted Divider */}
-      <div className="relative">
-        <svg
-          viewBox="0 0 1440 320"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <path
-            fill="#FFFFFF"
-            d="M0,320L1440,160L1440,320L0,320Z"
-          />
-        </svg>
-      </div>
+      <svg
+        className="w-full"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#FFFFFF"
+          d="M0,320L1440,160L1440,320L0,320Z"
+        />
+      </svg>
 
       {/* Core Values Section */}
       <section className="bg-light text-darkBlue py-16 px-6">
@@ -124,18 +120,16 @@ export default function Home() {
       </section>
 
       {/* Wavy Divider */}
-      <div className="relative">
-        <svg
-          viewBox="0 0 1440 320"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <path
-            fill="#17345C"
-            d="M0,96L60,90.7C120,85,240,75,360,64C480,53,600,43,720,58.7C840,75,960,117,1080,128C1200,139,1320,117,1380,106.7L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
-          />
-        </svg>
-      </div>
+      <svg
+        className="w-full"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#17345C"
+          d="M0,160L60,176C120,192,240,224,360,218.7C480,213,600,171,720,160C840,149,960,171,1080,176C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        />
+      </svg>
 
       {/* Products Section */}
       <section className="bg-darkBlue text-light py-16 px-6">
@@ -182,18 +176,16 @@ export default function Home() {
       </section>
 
       {/* Slanted Divider */}
-      <div className="relative">
-        <svg
-          viewBox="0 0 1440 320"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <path
-            fill="#FFFFFF"
-            d="M0,320L1440,160L1440,320L0,320Z"
-          />
-        </svg>
-      </div>
+      <svg
+        className="w-full"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#FFFFFF"
+          d="M0,320L1440,160L1440,320L0,320Z"
+        />
+      </svg>
 
       {/* Services Section */}
       <section className="bg-light text-darkBlue py-16 px-6">
@@ -234,6 +226,10 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
+                class
+
+                              <div
+                key={index}
                 className="bg-white shadow-lg p-6 rounded-3xl hover:shadow-xl transition-shadow duration-200"
               >
                 <h3 className="text-xl font-bold">{service.title}</h3>
@@ -245,20 +241,18 @@ export default function Home() {
       </section>
 
       {/* Curved Divider */}
-      <div className="relative">
-        <svg
-          viewBox="0 0 1440 320"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <path
-            fill="#4168B1"
-            d="M0,192L48,186.7C96,181,192,171,288,176C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          />
-        </svg>
-      </div>
+      <svg
+        className="w-full"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#4168B1"
+          d="M0,192L120,176C240,160,480,128,720,122.7C960,117,1200,139,1320,149.3L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        />
+      </svg>
 
-      {/* Call to Action */}
+      {/* Call to Action Section */}
       <section className="bg-azureBlue text-darkBlue py-16 px-6 text-center">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">Partner With Us</h2>
@@ -274,6 +268,82 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Wavy Divider */}
+      <svg
+        className="w-full"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#17345C"
+          d="M0,128L120,160C240,192,480,256,720,266.7C960,277,1200,235,1320,213.3L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        />
+      </svg>
+
+      {/* Footer Section */}
+      <footer className="bg-darkBlue text-light py-16 px-6">
+        <div className="container mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-center md:text-left">
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-lg font-semibold text-azureBlue mb-2">Contact Us</h3>
+            <p>
+              <strong>Phone:</strong>{" "}
+              <a
+                href="tel:17036390911"
+                className="text-orbitBlue hover:text-azureBlue transition"
+              >
+                1-703-639-0911
+              </a>
+            </p>
+            <p>
+              6862 Elm St. Ste 300 <br />
+              McLean, VA 22101-3886
+            </p>
+          </div>
+
+          {/* Social Media Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-azureBlue mb-2">Follow Us</h3>
+            <div className="flex justify-center md:justify-start">
+              <a
+                href="https://www.linkedin.com/company/orbisoperations"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orbitBlue hover:text-azureBlue transition"
+                aria-label="Follow us on LinkedIn"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          {/* Legal Information */}
+          <div>
+            <p className="mb-2">
+              &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
+            </p>
+            <p>
+              Contact us:{" "}
+              <a
+                href="mailto:impact@orbisops.com"
+                className="text-orbitBlue hover:text-azureBlue transition"
+              >
+                impact@orbisops.com
+              </a>
+            </p>
+            <p>
+              <a href="/privacy" className="text-orbitBlue hover:text-azureBlue transition">
+                Privacy Policy
+              </a>{" "}
+              |{" "}
+              <a href="/terms" className="text-orbitBlue hover:text-azureBlue transition">
+                Terms of Use
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
