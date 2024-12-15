@@ -2,10 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-sans bg-accent text-darkBlue;
+/* Global Styles */
+@layer base {
+  /* Resetting margin and padding */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Apply a smooth line-height for readability */
+  body {
+    @apply font-sans bg-accent text-darkBlue leading-relaxed;
+  }
+
+  /* Apply a background color to the body for better contrast */
+  html {
+    scroll-behavior: smooth; /* Optional: smooth scrolling */
+  }
+
+  /* Set global focus styles for accessibility */
+  :focus {
+    outline: 2px solid #4168B1; /* Example: outline with a brand color */
+    outline-offset: 2px;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-heading;
+/* Headings Styling */
+@layer components {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-darkBlue; /* Consistent text color for headings */
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  /* You can add custom utility classes here */
+  .bg-light {
+    background-color: #F8F9FA; /* Light background class */
+  }
 }
