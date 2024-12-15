@@ -47,7 +47,7 @@ bun dev
 
 Open http://localhost:3000 in your browser to see the site in action. The page auto-updates as you edit files.
 
-Editing the Site
+## Editing the Site
 
 Modify the main page at:
 
