@@ -51,13 +51,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     AOS.init({ duration: 1000, once: true });
 
     // Add 'loaded' class to body after initial render
-    document.body.classList.add("loaded");
+    document.body.classList.add("loaded")
 
-    // Optional: Cleanup AOS instance on component unmount
-    return () => {
-      AOS.refresh();
-    };
-  }, []);
+
+ // No cleanup function is required for AOS
+}, []);
 
   useEffect(() => {
     const handleRouteChange = () => setMenuOpen(false);
