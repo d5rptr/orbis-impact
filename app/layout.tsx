@@ -12,6 +12,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
+
+    // Add 'loaded' class to body after initial render
+    document.body.classList.add("loaded");
   }, []);
 
   return (
