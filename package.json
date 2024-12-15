@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "aos": "latest",
+    "framer-motion": "latest",  // Added Framer Motion
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
