@@ -97,39 +97,6 @@ export default function Home() {
     },
   ];
 
-  const services = [
-    {
-      title: "Research & Analysis",
-      description:
-        "Deep insights into global trends and challenges to inform decision-making.",
-    },
-    {
-      title: "Training",
-      description:
-        "Customized training programs to enhance skills and operational readiness.",
-    },
-    {
-      title: "OSINT Advisory",
-      description:
-        "Expert guidance in leveraging open-source intelligence for actionable insights.",
-    },
-    {
-      title: "Strategic Communications",
-      description:
-        "Crafting narratives and communication strategies to achieve organizational goals.",
-    },
-    {
-      title: "Consulting",
-      description:
-        "Tailored consulting solutions to address your unique challenges and objectives.",
-    },
-    {
-      title: "Data as a Service",
-      description:
-        "Secure and scalable solutions for real-time data access and analytics.",
-    },
-  ];
-
   return (
     <div className="font-sans bg-gradient-to-r from-gray-900 to-gray-800 text-light min-h-screen">
       {/* Hero Section */}
