@@ -58,41 +58,41 @@ app/page.tsx
 
 The site auto-reloads as you save changes.
 
-Deployment
+## Deployment
 
-The easiest way to deploy your Orbis Impact site is with Vercel, the creators of Next.js. Follow these steps:
-	1.	Sign up for a Vercel account.
-	2.	Connect your GitHub repository to Vercel.
-	3.	Deploy your project with a single click.
+The easiest way to deploy your this site is with Vercel, the creators of Next.js. Follow these steps:
+1. Sign up for a Vercel account.
+2. Connect your GitHub repository to Vercel.
+3. Deploy your project with a single click.
 
 For detailed deployment instructions, refer to the Next.js Deployment Documentation.
 
-Orbis Branding
+## Orbis Branding
 
 Primary Colors
-	•	Dark Blue: #17345C (RGB: 23, 52, 92)
-	•	Azure Blue: #4168B1 (RGB: 65, 104, 177)
-	•	Orbit Blue: #6DCFF6 (RGB: 109, 207, 246)
+• Dark Blue: #17345C (RGB: 23, 52, 92)
+• Azure Blue: #4168B1 (RGB: 65, 104, 177)
+• Orbit Blue: #6DCFF6 (RGB: 109, 207, 246)
 
 These colors are integrated into the design for a consistent brand identity.
 
-Learn More
+## Learn More
 
 To learn more about Next.js and how to extend the functionality of this project, check out:
-	•	Next.js Documentation - Explore features and APIs.
-	•	Next.js GitHub Repository - Join the community and contribute.
-	•	Learn Next.js - An interactive tutorial for beginners.
+• Next.js Documentation - Explore features and APIs.
+• Next.js GitHub Repository - Join the community and contribute.
+• Learn Next.js - An interactive tutorial for beginners.
 
-Contributing
+## Contributing
 
 We welcome contributions to improve the Orbis Impact website. Feel free to fork the repository and submit a pull request with your enhancements.
 
-License
+## License
 
 This project is licensed under the MIT License.
 
-Contact
+## Contact
 
-For inquiries, please contact Orbis Operations.
+For inquiries, please contact d5rptr
 
-You can copy and paste this entire block into your `README.md` file on GitHub. Let me know if you need further adjustments!
+
