@@ -8,13 +8,11 @@ import "aos/dist/aos.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-// Define the structure for navigation links
 interface NavLink {
   href: string;
   label: string;
 }
 
-// Reusable Navigation Component
 const Navigation: React.FC<{ links: NavLink[]; onLinkClick?: () => void }> = ({ links, onLinkClick }) => (
   <ul className="flex flex-col md:flex-row md:space-x-4 lg:space-x-6">
     {links.map(({ href, label }) => (
@@ -31,7 +29,6 @@ const Navigation: React.FC<{ links: NavLink[]; onLinkClick?: () => void }> = ({ 
   </ul>
 );
 
-// Reusable Footer Section Component
 const FooterSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <div>
     <h3 className="text-lg font-semibold text-azureBlue mb-2">{title}</h3>
@@ -56,13 +53,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // Add 'loaded' class to body after initial render
     document.body.classList.add("loaded");
 
-    // Cleanup AOS instance on component unmount
+    // Optional: Cleanup AOS instance on component unmount
     return () => {
-      AOS.refreshHard();
+      AOS.refresh();
     };
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     const handleRouteChange = () => setMenuOpen(false);
     router.events.on("routeChangeStart", handleRouteChange);
@@ -73,10 +69,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="bg-accent text-darkBlue font-sans min-h-screen flex flex-col">
-      {/* Header */}
       <header className="bg-darkBlue text-light py-4 md:py-6 shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
-          {/* Logo */}
           <div className="relative w-32 md:w-40 lg:w-48">
             <Link href="/" aria-label="Orbis Home">
               <Image
@@ -90,12 +84,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <Navigation links={navLinks} />
           </nav>
 
-          {/* Hamburger Icon */}
           <button
             className="md:hidden text-orbitBlue focus:outline-none focus:ring-2 focus:ring-azureBlue rounded"
             onClick={() => setMenuOpen(!isMenuOpen)}
@@ -103,7 +95,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
-              // Close Icon
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -116,7 +107,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             ) : (
-              // Hamburger Icon
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -132,7 +122,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <nav
           className={`md:hidden bg-darkBlue text-light transition-transform transform ${
             isMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
@@ -145,13 +134,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </nav>
       </header>
 
-      {/* Main Content */}
       <main className="flex-grow py-8 px-4 md:px-8">{children}</main>
 
-      {/* Footer */}
       <footer className="bg-darkBlue text-light py-8 px-4 md:px-8">
         <div className="container mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-center md:text-left">
-          {/* Contact Information */}
           <FooterSection title="Contact Us">
             <p>
               <strong>Phone:</strong>{" "}
@@ -168,7 +154,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </FooterSection>
 
-          {/* Social Media Links */}
           <FooterSection title="Follow Us">
             <div className="flex justify-center md:justify-start space-x-4">
               <a
@@ -183,7 +168,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </FooterSection>
 
-          {/* Legal Information */}
           <FooterSection title="Legal">
             <p className="mb-2">
               &copy; {new Date().getFullYear()} Orbis Operations LLC. All rights reserved.
