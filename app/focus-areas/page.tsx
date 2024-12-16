@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Mark the page for dynamic rendering
+// Ensure this page is dynamically rendered
 export const dynamic = "force-dynamic";
 
 const FocusAreas: React.FC = () => {
@@ -39,7 +39,6 @@ const FocusAreas: React.FC = () => {
         "Enhancing predictive modeling for future scenarios.",
       ],
     },
-    // Add more areas as needed
   ];
 
   return (
