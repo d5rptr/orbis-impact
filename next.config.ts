@@ -7,10 +7,7 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Disables image optimization for static exports
   },
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL, // Environment variable example
-  },
-  experimental: {
-    appDir: true, // Enables support for the app directory if you're using it
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL, // Example environment variable
   },
   async redirects() {
     return [
