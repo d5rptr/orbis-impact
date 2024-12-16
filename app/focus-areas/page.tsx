@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Ensure this page is dynamically rendered
+// Mark the page for dynamic rendering
 export const dynamic = "force-dynamic";
 
 const FocusAreas: React.FC = () => {
