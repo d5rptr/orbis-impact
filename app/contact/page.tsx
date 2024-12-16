@@ -3,14 +3,11 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-// Force dynamic rendering for this page
-export const dynamic = "force-dynamic";
-
 const Contact: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Ensure this component only runs on the client
+    setIsClient(true); // Ensures the iframe only loads on the client side
   }, []);
 
   return (
@@ -40,7 +37,7 @@ const Contact: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       >
-        {isClient && (
+        {isClient ? (
           <iframe
             src="https://forms.monday.com/forms/embed/77dda2f952e838e550d483bdd765f241?r=use1"
             className="w-full h-[1000px] md:h-[1400px] border-0 rounded-lg shadow-2xl"
@@ -50,6 +47,8 @@ const Contact: React.FC = () => {
             title="Contact Form"
             aria-label="Contact Us Form"
           />
+        ) : (
+          <p className="text-center">Loading form...</p>
         )}
       </motion.div>
     </motion.div>
